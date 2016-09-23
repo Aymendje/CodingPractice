@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+
+\setlength\parskip{0.1in}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\dcode}[1]{\[\texttt{#1}\]}
+
+\usepackage[final]{pdfpages}
+\usepackage{fullpage}
+
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+\begin{document} 
+\lstset{language=python}
+
+\section*{\hfil--- Problem 1: Santa's ladder ---\hfil}
+
+ 	\begin{chapquote}{Brooke Hampton, \textit{Writer for the Huffington Post}}
+ 	``Maybe we should spend less time teaching kids to believe in Santa and more time teaching them to believe in themselves.''
+ 	\end{chapquote}
+
+
+    Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions he got are a little confusing. He starts on the ground floor (floor 0) and then follows the instructions one character at a time.
+
+
+	\subsection* {Where is Santa}
+
+    An opening parenthesis, (, means he should go up one floor, and a closing parenthesis, ), means he should go down one floor.
+    
+    The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.
+    
+    For example:
+    
+    \begin{lstlisting}
+        (()) and ()() both result in floor 0.
+        ((( and (()(()( both result in floor 3.
+        ))((((( also results in floor 3.
+        ()) and ))( both result in floor -1 (the first basement level).
+        ))) and )())()) both result in floor -3.
+    \end{lstlisting}
+    
+    \textbf{To what floor do the instructions take Santa?}  
+
+	\subsection* {The basement}
+
+    Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
+    
+    For example:
+    
+    \begin{lstlisting}
+        ) causes him to enter the basement at character position 1.
+        ()()) causes him to enter the basement at character position 5. 
+    \end{lstlisting}
+    
+    \textbf{What is the position of the character that causes Santa to first enter the basement?}  
+    
+\end{document}
