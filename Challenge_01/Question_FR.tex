@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{listings}
+
+\setlength\parskip{0.1in}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\dcode}[1]{\[\texttt{#1}\]}
+
+\usepackage[final]{pdfpages}
+\usepackage{fullpage}
+
+\usepackage{lipsum}
+\newcounter{examplecounter}
+\newenvironment{example}{\begin{quote}%
+}{%
+\end{quote}%
+}
+
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+\begin{document}
+\lstset{language=python}
+
+\section*{\hfil--- Problème 1: L'ascenseur Noël ---\hfil}
+
+  \begin{chapquote}{Brooke Hampton, \textit{Chroniqueur au Huffington Post}}
+  ``Nous devrions peut-être passer moins de temps à enseigner aux enfants à croire au Père Noël et plus de temps à leur apprendre à croire en eux même.''
+  \end{chapquote}
+
+
+   Le Père Noël cherche à offrir des cadeaux dans un grand immeuble, mais il ne peut pas trouver le bon étage - les directions qu'il a obtenu sont un peu confuses. Il commence au rez-de-chaussée (étage 0), puis suit les instructions un caractère à la fois.
+
+
+  \subsection* {Où est le père noël}
+
+    Une parenthèse ouvrante, (, signifie qu'il devrait monter un étage, et une parenthèse fermante, ), signifie qu'il devrait descendre d'un étage.
+
+    L'immeuble est très grand, et le sous-sol est très profond; il ne pourra jamais atteindre l'étage le plus haut, ni le plus bas.
+
+    Par exemple:
+    
+    \begin{example}
+      (())  et  ()()    réultent tout les deux à l'étage 0.\\
+      (((   et  (()(()( réultent tout les deux à l'étage 3.\\
+      ))(((((           fini également au 3ieme étage.\\
+      ())   et  ))(     les deux résultat à l'étage -1 (le premier niveau du sous-sol).\\
+      )))   et  )())()) sont tout les deux à l'étage -3.
+    \end{example}
+    
+    \textbf{Après avoir suivis les instructions, a quel étage le Père Noël finiras t'il ?}  
+
+  \subsection* {Le sous-sol}
+
+    Maintenant, étant donné les mêmes instructions, trouver la position du premier caractère qui l'amène à entrer dans le sous-sol (niveau -1). Le premier caractère dans les instructions a la position 1, le deuxième personnage a la position 2, et ainsi de suite.
+
+    Par exemple:
+    
+    \begin{example}
+      )     Le fait entrer dans le sous-sol à la position de caractère 1.\\
+      ()())   Le fait entrer dans le sous-sol à la position de caractère 5.
+    \end{example}
+    
+    \textbf{Quelle est la position du caractère qui provoque le Père Noël pour la première entrer dans le sous-sol?}  
+    
+\end{document}
